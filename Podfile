@@ -7,5 +7,6 @@ target 'EzNetworkLayer' do
 
   # Pods for EzNetworkLayer
   pod 'Moya', '~> 15.0'
-
+  pod 'RxSwift', '6.0.0'
+  pod 'RxCocoa', '6.0.0'
 end
