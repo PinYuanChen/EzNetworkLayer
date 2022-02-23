@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		373460A927C0E69C001D3ED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373460A827C0E69C001D3ED6 /* AppDelegate.swift */; };
 		373460AB27C0E69C001D3ED6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373460AA27C0E69C001D3ED6 /* SceneDelegate.swift */; };
-		373460AD27C0E69C001D3ED6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373460AC27C0E69C001D3ED6 /* ViewController.swift */; };
 		373460B027C0E69C001D3ED6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373460AE27C0E69C001D3ED6 /* Main.storyboard */; };
 		373460B227C0E69F001D3ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373460B127C0E69F001D3ED6 /* Assets.xcassets */; };
 		373460B527C0E69F001D3ED6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373460B327C0E69F001D3ED6 /* LaunchScreen.storyboard */; };
 		373460BD27C0E74F001D3ED6 /* EzTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373460BC27C0E74F001D3ED6 /* EzTargetType.swift */; };
+		3754566127C37215008CE47A /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754566027C37215008CE47A /* Decision.swift */; };
+		37631D7827C5DC850023E261 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37631D7727C5DC850023E261 /* APIError.swift */; };
+		378262DB27C375E60099DBF5 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378262DA27C375E60099DBF5 /* ResponseModel.swift */; };
 		43DB9FF090C224DAB858F632 /* Pods_EzNetworkLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4B155A43E5D63225BF0C55 /* Pods_EzNetworkLayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,12 +23,14 @@
 		373460A527C0E69B001D3ED6 /* EzNetworkLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzNetworkLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		373460A827C0E69C001D3ED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		373460AA27C0E69C001D3ED6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		373460AC27C0E69C001D3ED6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		373460AF27C0E69C001D3ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		373460B127C0E69F001D3ED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		373460B427C0E69F001D3ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		373460B627C0E69F001D3ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373460BC27C0E74F001D3ED6 /* EzTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzTargetType.swift; sourceTree = "<group>"; };
+		3754566027C37215008CE47A /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
+		37631D7727C5DC850023E261 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		378262DA27C375E60099DBF5 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		3E2E8BFAC6628382586F224F /* Pods-EzNetworkLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzNetworkLayer.release.xcconfig"; path = "Target Support Files/Pods-EzNetworkLayer/Pods-EzNetworkLayer.release.xcconfig"; sourceTree = "<group>"; };
 		9EC467DDAC5839D8CAB539DC /* Pods-EzNetworkLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzNetworkLayer.debug.xcconfig"; path = "Target Support Files/Pods-EzNetworkLayer/Pods-EzNetworkLayer.debug.xcconfig"; sourceTree = "<group>"; };
 		DC4B155A43E5D63225BF0C55 /* Pods_EzNetworkLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzNetworkLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +54,6 @@
 				9EC467DDAC5839D8CAB539DC /* Pods-EzNetworkLayer.debug.xcconfig */,
 				3E2E8BFAC6628382586F224F /* Pods-EzNetworkLayer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,9 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				373460A827C0E69C001D3ED6 /* AppDelegate.swift */,
-				373460BC27C0E74F001D3ED6 /* EzTargetType.swift */,
 				373460AA27C0E69C001D3ED6 /* SceneDelegate.swift */,
-				373460AC27C0E69C001D3ED6 /* ViewController.swift */,
+				373460BC27C0E74F001D3ED6 /* EzTargetType.swift */,
+				3754566027C37215008CE47A /* Decision.swift */,
+				37631D7727C5DC850023E261 /* APIError.swift */,
+				378262DA27C375E60099DBF5 /* ResponseModel.swift */,
 				373460AE27C0E69C001D3ED6 /* Main.storyboard */,
 				373460B127C0E69F001D3ED6 /* Assets.xcassets */,
 				373460B327C0E69F001D3ED6 /* LaunchScreen.storyboard */,
@@ -210,10 +215,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373460AD27C0E69C001D3ED6 /* ViewController.swift in Sources */,
 				373460BD27C0E74F001D3ED6 /* EzTargetType.swift in Sources */,
 				373460A927C0E69C001D3ED6 /* AppDelegate.swift in Sources */,
 				373460AB27C0E69C001D3ED6 /* SceneDelegate.swift in Sources */,
+				378262DB27C375E60099DBF5 /* ResponseModel.swift in Sources */,
+				3754566127C37215008CE47A /* Decision.swift in Sources */,
+				37631D7827C5DC850023E261 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
