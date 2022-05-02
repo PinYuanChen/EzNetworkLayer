@@ -10,7 +10,7 @@ import Moya
 import RxSwift
 import RxCocoa
 
-enum ResponseError: Error {
+enum EZResponseError: Error {
     case dataIsNil
     case nonHTTPResponse
     case tokenError
@@ -91,7 +91,7 @@ struct InitialParseResultDecision: Decision {
             )
             closure(action)
         } catch {
-            closure(.errored(error: ResponseError.unknownError(error: error, response: response)))
+            closure(.errored(error: EZResponseError.unknownError(error: error, response: response)))
         }
     }
 }
@@ -114,12 +114,12 @@ struct ResponseStatusCodeDecision: Decision {
     ) {
         if let modelData = resultModelData {
             if let error = APIError(rawValue: modelData.statusCode ?? 0) {
-                closure(.errored(error: ResponseError.apiError(error: error, resultModel: modelData)))
+                closure(.errored(error: EZResponseError.apiError(error: error, resultModel: modelData)))
             } else {
-                closure(.errored(error: ResponseError.unknownStatusCode))
+                closure(.errored(error: EZResponseError.unknownStatusCode))
             }
         } else {
-            closure(.errored(error: ResponseError.resultModelDataIsNil))
+            closure(.errored(error: EZResponseError.resultModelDataIsNil))
         }
     }
 }
@@ -144,10 +144,10 @@ struct ParseResultDecision: Decision {
                 let value = try decoder.decode(T.ResponseType.self, from: data)
                 closure(.done(value: value))
             } catch {
-                closure(.errored(error: ResponseError.unknownError(error: error, response: response)))
+                closure(.errored(error: EZResponseError.unknownError(error: error, response: response)))
             }
         } else {
-            closure(.errored(error: ResponseError.dataIsNil))
+            closure(.errored(error: EZResponseError.dataIsNil))
         }
     }
 }

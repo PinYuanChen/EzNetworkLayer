@@ -28,4 +28,12 @@ extension EzTargetType {
         APIBaseHeader
     }
     
+    var decisions: [Decision] {
+        [
+            ServiceResponseStatusCodeDecision(),
+            InitialParseResultDecision(),
+            ResponseStatusCodeDecision(),
+            ParseResultDecision()
+        ]
+    }
 }
