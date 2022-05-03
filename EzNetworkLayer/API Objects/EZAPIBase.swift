@@ -15,45 +15,40 @@ extension MoyaProvider where Target: EzTargetType {
         decisions: [Decision]? = nil,
         handler: @escaping (Result<T.ResponseType, Error>) -> Void
     ) {
-        self.request(request as! Target) {
-            result in
-            switch result {
+        self.request(request as! Target) { [weak self] in
+            switch $0 {
             case .success(let response):
-                
-                /*
-                 log.debug( "\n😎\(request.path)\n\(try? JSON(data: response.data))")
-                 */
-                
-                /*
+       
                  // 測試用
-                 if request.path.contains("") {
-                 
-                 let data = """
-                 {
-                 "Message" : "",
-                 "StatusCode" : 7106,
-                 "Payload" : {
-                 }
-                 }
-                 """.data(using: .utf8)!
-                 
-                 self.handleDecision(
-                 request,
-                 response: .init(
-                 statusCode: 200,
-                 data: data,
-                 request: response.request,
-                 response: response.response
-                 ),
-                 decisions: decisions ?? request.decisions,
-                 handler: handler
-                 )
-                 
-                 return
-                 }
-                 */
-                
-                self.handleDecision(
+//                if request.path.contains("") {
+//                    let data = """
+//                 {
+//                 "Message" : "",
+//                 "StatusCode" : 200,
+//                 "Data" : {
+//                    "fact": "A cats field of vision is about 185 degrees.",
+//                    "length": 44
+//                 }
+//                 }
+//                 """.data(using: .utf8)!
+//
+//                    self?.handleDecision(
+//                        request,
+//                        response: .init(
+//                            statusCode: 200,
+//                            data: data,
+//                            request: response.request,
+//                            response: response.response
+//                        ),
+//                        decisions: decisions ?? request.decisions,
+//                        handler: handler
+//                    )
+//
+//                    return
+//                }
+//                 
+//                 
+                self?.handleDecision(
                     request,
                     response: response,
                     decisions: decisions ?? request.decisions,
@@ -124,22 +119,10 @@ extension MoyaProvider where Target: EzTargetType {
                     )
                     break
                 case .errored(error: let error):
-                    
-                    /*
-                     print("😎 ", request.path, "  error = ", error)
-                     */
-                    
-                    if let error = error as? EZResponseError {
-                        self.ezResponseErrorHandler(error: error)
-                    }
-                    
+                    handler(.failure(error))
                 case .done(value: let value):
                     handler(.success(value))
                 }
             }
-    }
-    
-    func ezResponseErrorHandler(error: EZResponseError) {
-       // special handle of error
     }
 }

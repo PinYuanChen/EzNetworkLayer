@@ -18,6 +18,10 @@
 		378262DB27C375E60099DBF5 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378262DA27C375E60099DBF5 /* ResponseModel.swift */; };
 		379D036A281E7F1A00DC53B6 /* EZAPIBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D0369281E7F1A00DC53B6 /* EZAPIBase.swift */; };
 		43DB9FF090C224DAB858F632 /* Pods_EzNetworkLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4B155A43E5D63225BF0C55 /* Pods_EzNetworkLayer.framework */; };
+		CD08F02B28210C28006C9A74 /* CodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD08F02A28210C28006C9A74 /* CodableExtension.swift */; };
+		CDB090FF2820D83D00FA9DDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB090FE2820D83D00FA9DDA /* ViewController.swift */; };
+		CDB091012820D90400FA9DDA /* EzDemoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB091002820D90300FA9DDA /* EzDemoAPI.swift */; };
+		CDB091032820D9A000FA9DDA /* EzDemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB091022820D9A000FA9DDA /* EzDemoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		379D0369281E7F1A00DC53B6 /* EZAPIBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZAPIBase.swift; sourceTree = "<group>"; };
 		3E2E8BFAC6628382586F224F /* Pods-EzNetworkLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzNetworkLayer.release.xcconfig"; path = "Target Support Files/Pods-EzNetworkLayer/Pods-EzNetworkLayer.release.xcconfig"; sourceTree = "<group>"; };
 		9EC467DDAC5839D8CAB539DC /* Pods-EzNetworkLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzNetworkLayer.debug.xcconfig"; path = "Target Support Files/Pods-EzNetworkLayer/Pods-EzNetworkLayer.debug.xcconfig"; sourceTree = "<group>"; };
+		CD08F02A28210C28006C9A74 /* CodableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableExtension.swift; sourceTree = "<group>"; };
+		CDB090FE2820D83D00FA9DDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CDB091002820D90300FA9DDA /* EzDemoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzDemoAPI.swift; sourceTree = "<group>"; };
+		CDB091022820D9A000FA9DDA /* EzDemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzDemoModel.swift; sourceTree = "<group>"; };
 		DC4B155A43E5D63225BF0C55 /* Pods_EzNetworkLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzNetworkLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,17 +98,61 @@
 			children = (
 				373460A827C0E69C001D3ED6 /* AppDelegate.swift */,
 				373460AA27C0E69C001D3ED6 /* SceneDelegate.swift */,
-				373460BC27C0E74F001D3ED6 /* EzTargetType.swift */,
-				379D0369281E7F1A00DC53B6 /* EZAPIBase.swift */,
-				3754566027C37215008CE47A /* Decision.swift */,
-				37631D7727C5DC850023E261 /* APIError.swift */,
-				378262DA27C375E60099DBF5 /* ResponseModel.swift */,
+				CD17506828212299004791E1 /* API Objects */,
+				CD17506728212274004791E1 /* Extension */,
+				CD17506628212264004791E1 /* Decision */,
+				CD175069282122AF004791E1 /* Response Model */,
+				CDB090FD2820D81C00FA9DDA /* Demo */,
 				373460AE27C0E69C001D3ED6 /* Main.storyboard */,
 				373460B127C0E69F001D3ED6 /* Assets.xcassets */,
 				373460B327C0E69F001D3ED6 /* LaunchScreen.storyboard */,
 				373460B627C0E69F001D3ED6 /* Info.plist */,
 			);
 			path = EzNetworkLayer;
+			sourceTree = "<group>";
+		};
+		CD17506628212264004791E1 /* Decision */ = {
+			isa = PBXGroup;
+			children = (
+				3754566027C37215008CE47A /* Decision.swift */,
+			);
+			path = Decision;
+			sourceTree = "<group>";
+		};
+		CD17506728212274004791E1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CD08F02A28210C28006C9A74 /* CodableExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CD17506828212299004791E1 /* API Objects */ = {
+			isa = PBXGroup;
+			children = (
+				373460BC27C0E74F001D3ED6 /* EzTargetType.swift */,
+				379D0369281E7F1A00DC53B6 /* EZAPIBase.swift */,
+				37631D7727C5DC850023E261 /* APIError.swift */,
+			);
+			path = "API Objects";
+			sourceTree = "<group>";
+		};
+		CD175069282122AF004791E1 /* Response Model */ = {
+			isa = PBXGroup;
+			children = (
+				378262DA27C375E60099DBF5 /* ResponseModel.swift */,
+			);
+			path = "Response Model";
+			sourceTree = "<group>";
+		};
+		CDB090FD2820D81C00FA9DDA /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				CDB090FE2820D83D00FA9DDA /* ViewController.swift */,
+				CDB091002820D90300FA9DDA /* EzDemoAPI.swift */,
+				CDB091022820D9A000FA9DDA /* EzDemoModel.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,9 +273,13 @@
 				373460BD27C0E74F001D3ED6 /* EzTargetType.swift in Sources */,
 				373460A927C0E69C001D3ED6 /* AppDelegate.swift in Sources */,
 				373460AB27C0E69C001D3ED6 /* SceneDelegate.swift in Sources */,
+				CDB091012820D90400FA9DDA /* EzDemoAPI.swift in Sources */,
+				CDB091032820D9A000FA9DDA /* EzDemoModel.swift in Sources */,
 				378262DB27C375E60099DBF5 /* ResponseModel.swift in Sources */,
 				379D036A281E7F1A00DC53B6 /* EZAPIBase.swift in Sources */,
+				CD08F02B28210C28006C9A74 /* CodableExtension.swift in Sources */,
 				3754566127C37215008CE47A /* Decision.swift in Sources */,
+				CDB090FF2820D83D00FA9DDA /* ViewController.swift in Sources */,
 				37631D7827C5DC850023E261 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

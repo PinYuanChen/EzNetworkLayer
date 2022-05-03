@@ -103,7 +103,7 @@ struct ResponseStatusCodeDecision: Decision {
         response: Moya.Response,
         resultModelData: ResponseModel?
     ) -> Bool {
-        !(resultModelData?.statusCode == 0)
+        !(resultModelData?.statusCode == 200)
     }
     
     func apply<T: EzTargetType>(

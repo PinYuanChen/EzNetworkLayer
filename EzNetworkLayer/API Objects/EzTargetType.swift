@@ -8,20 +8,21 @@
 import Foundation
 import Moya
 
-var APIBaseHeader: [String: String] {
+var APIBaseHeader: [String: String]? {
     // Fill in required info for request
-    return ["" : ""]
+    nil
 }
 
 protocol EzTargetType: TargetType {
     associatedtype ResponseType: Decodable
+    var decisions: [Decision] { get }
 }
 
 extension EzTargetType {
     
     var baseURL: URL {
-        // Fill in your url
-        URL(string: "")!
+        // Change to your url
+        .init(string: "https://catfact.ninja")!
     }
     
     var headers: [String : String]? {

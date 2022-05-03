@@ -9,4 +9,5 @@ target 'EzNetworkLayer' do
   pod 'Moya', '~> 15.0'
   pod 'RxSwift', '6.0.0'
   pod 'RxCocoa', '6.0.0'
+  pod "SwiftyJSON", "5.0.1"
 end

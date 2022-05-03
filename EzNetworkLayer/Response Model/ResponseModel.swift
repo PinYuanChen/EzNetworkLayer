@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct ResponseModel: Codable {
     
     // example format, change to your API response type
-    let message: String
+    let message: String?
     let statusCode: Int?
     let data: Data
     
@@ -28,9 +29,10 @@ struct ResponseModel: Codable {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        message = try container.decode(String.self, forKey: .message)
+        message = try? container.decode(String.self, forKey: .message)
         statusCode = try? container.decodeIfPresent(Int.self, forKey: .statusCode)
-        data = try container.decode(Data.self, forKey: .data)
+        let dict = try container.decode(Dictionary.self, forKey: .data)
+        data = try JSON(dict).rawData()
     }
     
 }
