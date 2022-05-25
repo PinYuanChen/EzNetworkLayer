@@ -20,34 +20,35 @@ extension MoyaProvider where Target: EzTargetType {
             case .success(let response):
        
                  // 測試用
-//                if request.path.contains("") {
-//                    let data = """
-//                 {
-//                 "Message" : "",
-//                 "StatusCode" : 200,
-//                 "Data" : {
-//                    "fact": "A cats field of vision is about 185 degrees.",
-//                    "length": 44
-//                 }
-//                 }
-//                 """.data(using: .utf8)!
-//
-//                    self?.handleDecision(
-//                        request,
-//                        response: .init(
-//                            statusCode: 200,
-//                            data: data,
-//                            request: response.request,
-//                            response: response.response
-//                        ),
-//                        decisions: decisions ?? request.decisions,
-//                        handler: handler
-//                    )
-//
-//                    return
-//                }
-//                 
-//                 
+                /*
+                if request.path.contains("") {
+                    let data = """
+                 {
+                 "Message" : "",
+                 "StatusCode" : 200,
+                 "Data" : {
+                    "fact": "A cats field of vision is about 185 degrees.",
+                    "length": 44
+                 }
+                 }
+                 """.data(using: .utf8)!
+
+                    self?.handleDecision(
+                        request,
+                        response: .init(
+                            statusCode: 200,
+                            data: data,
+                            request: response.request,
+                            response: response.response
+                        ),
+                        decisions: decisions ?? request.decisions,
+                        handler: handler
+                    )
+
+                    return
+                }
+                */
+                 
                 self?.handleDecision(
                     request,
                     response: response,

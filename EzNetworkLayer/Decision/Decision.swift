@@ -138,7 +138,6 @@ struct ParseResultDecision: Decision {
         resultModelData: ResponseModel?,
         done closure: @escaping (DecisionAction<T>) -> Void
     ) {
-        
         if let data = resultModelData?.data {
             do {
                 let value = try decoder.decode(T.ResponseType.self, from: data)
@@ -147,6 +146,28 @@ struct ParseResultDecision: Decision {
                 closure(.errored(error: EZResponseError.unknownError(error: error, response: response)))
             }
         } else {
+            closure(.errored(error: EZResponseError.dataIsNil))
+        }
+    }
+}
+
+struct ParseResultDecisionForDemo: Decision {
+    func shouldApply<T: EzTargetType>(
+        request: T,
+        response: Moya.Response,
+        resultModelData: ResponseModel?
+    ) -> Bool { true }
+    
+    func apply<T: EzTargetType>(
+        request: T,
+        response: Moya.Response,
+        resultModelData: ResponseModel?,
+        done closure: @escaping (DecisionAction<T>) -> Void
+    ) {
+        do {
+            let responseData = try decoder.decode(T.ResponseType.self, from: response.data)
+            closure(.done(value: responseData))
+        } catch {
             closure(.errored(error: EZResponseError.dataIsNil))
         }
     }

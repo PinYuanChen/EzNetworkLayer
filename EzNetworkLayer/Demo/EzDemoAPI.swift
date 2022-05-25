@@ -21,6 +21,13 @@ private struct RequestTargetType: EzTargetType {
     var task: Task {
         .requestPlain
     }
+    
+    var decisions: [Decision] {
+        [
+            ServiceResponseStatusCodeDecision(),
+            ParseResultDecisionForDemo()
+        ]
+    }
 }
 
 protocol EzDemoAPIPrototype {
