@@ -32,8 +32,8 @@ extension EzTargetType {
     var decisions: [Decision] {
         [
             ServiceResponseStatusCodeDecision(),
+            RetryDecision(leftCount: 2),
             InitialParseResultDecision(),
-            ResponseStatusCodeDecision(),
             ParseResultDecision()
         ]
     }

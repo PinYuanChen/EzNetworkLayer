@@ -29,6 +29,7 @@ private struct RequestTargetType: EzTargetType {
     var decisions: [Decision] {
         [
             ServiceResponseStatusCodeDecision(),
+            RetryDecision(leftCount: 2),
             ParseResultDecisionForDemo()
         ]
     }

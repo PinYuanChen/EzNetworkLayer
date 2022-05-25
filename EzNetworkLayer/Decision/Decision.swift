@@ -96,15 +96,15 @@ struct InitialParseResultDecision: Decision {
     }
 }
 
-struct ResponseStatusCodeDecision: Decision {
-    
+struct RetryDecision: Decision {
+    let leftCount: Int
     func shouldApply<T: EzTargetType>(
         request: T,
         response: Moya.Response,
-        resultModelData: ResponseModel?
-    ) -> Bool {
-        !(resultModelData?.statusCode == 200)
-    }
+        resultModelData: ResponseModel?) -> Bool {
+            let isStatusCodeValid = (200..<300).contains(response.statusCode)
+            return !isStatusCodeValid && leftCount > 0
+        }
     
     func apply<T: EzTargetType>(
         request: T,
@@ -112,15 +112,10 @@ struct ResponseStatusCodeDecision: Decision {
         resultModelData: ResponseModel?,
         done closure: @escaping (DecisionAction<T>) -> Void
     ) {
-        if let modelData = resultModelData {
-            if let error = APIError(rawValue: modelData.statusCode ?? 0) {
-                closure(.errored(error: EZResponseError.apiError(error: error, resultModel: modelData)))
-            } else {
-                closure(.errored(error: EZResponseError.unknownStatusCode))
-            }
-        } else {
-            closure(.errored(error: EZResponseError.resultModelDataIsNil))
-        }
+        let retryDecision = RetryDecision(leftCount: leftCount - 1)
+        print(leftCount)
+        let newDecisions = request.decisions.replacing(self, with: retryDecision)
+        closure(.restartWith(decisions: newDecisions))
     }
 }
 
@@ -173,3 +168,9 @@ struct ParseResultDecisionForDemo: Decision {
     }
 }
 
+extension Array where Element == Decision {
+    func replacing(_ item: Decision, with: Decision?) -> Array {
+        print("Not implemented yet.")
+        return self
+    }
+}

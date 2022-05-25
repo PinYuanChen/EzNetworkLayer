@@ -19,7 +19,7 @@ extension MoyaProvider where Target: EzTargetType {
             switch $0 {
             case .success(let response):
        
-                 // 測試用
+                 // Insert fake data
                 /*
                 if request.path.contains("") {
                     let data = """
