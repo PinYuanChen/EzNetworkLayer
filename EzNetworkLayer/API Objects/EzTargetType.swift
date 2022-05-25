@@ -22,7 +22,7 @@ extension EzTargetType {
     
     var baseURL: URL {
         // Change to your url
-        .init(string: "https://catfact.ninja")!
+        .init(string: "")!
     }
     
     var headers: [String : String]? {

@@ -10,6 +10,10 @@ import RxCocoa
 private struct RequestTargetType: EzTargetType {
     typealias ResponseType = EzDemoModel
     
+    var baseURL: URL {
+        URL(string: "https://catfact.ninja")!
+    }
+    
     var path: String {
         "fact"
     }
